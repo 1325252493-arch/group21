@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 20% 97%;
+    --foreground: 220 14% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 10%;
+    --primary: 172 66% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 180 15% 95%;
+    --secondary-foreground: 220 14% 10%;
+    --muted: 180 10% 95%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 172 50% 92%;
+    --accent-foreground: 172 66% 25%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 10% 90%;
+    --input: 180 10% 90%;
+    --ring: 172 66% 40%;
+    --radius: 0.75rem;
+    --font-inter: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 200 15% 8%;
+    --foreground: 0 0% 95%;
+    --card: 200 12% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 200 12% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 172 66% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 10% 16%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 200 10% 16%;
+    --muted-foreground: 200 8% 60%;
+    --accent: 172 30% 18%;
+    --accent-foreground: 172 50% 70%;
+    --destructive: 0 62% 35%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 10% 18%;
+    --input: 200 10% 18%;
+    --ring: 172 66% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Force word wrap to prevent UI breaking in large font modes */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  html {
+    /* Responsive font size controlled by SettingsProvider */
+    font-size: var(--app-font-size, 16px);
+    -webkit-text-size-adjust: 100%;
+    /* Smooth transition for font changes */
+    transition: font-size 0.2s ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+    color: #111827;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
+/* Custom Utilities */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
